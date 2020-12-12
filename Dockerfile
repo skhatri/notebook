@@ -10,13 +10,13 @@ RUN mkdir -p /opt/app/notebook/data && groupadd --system --gid=1000 app\
     && useradd --system --no-log-init --gid app --uid=1000 app -m
 
 COPY entrypoint.sh /opt/app/entrypoint.sh
+COPY notebooks /opt/app/notebook/notebooks
 
 RUN python -m graph_notebook.notebooks.install --destination /opt/app/notebook
 
 RUN mkdir /home/app/.jupyter && chmod +x /opt/app/entrypoint.sh \
     && chown -R app:app /opt/app \
     && chown -R app:app /home/app
-
 
 
 ENV NOTEBOOK_PASS "sha1:92cf1ff5134d:eecd093c46b3b5b98285ab0238ebe929e640b2a8"
@@ -29,4 +29,5 @@ WORKDIR /opt/app/notebook
 USER app
 
 ENTRYPOINT ["/opt/app/entrypoint.sh"]
+
 CMD ["job"]
