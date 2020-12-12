@@ -12,6 +12,7 @@ services:
         command: "/opt/gremlin-server/conf/gremlin-server.yaml"
     jupyter:
         build: .
+        image: skhatri/notebook:latest
         restart: always
         depends_on:
             - tinkerpop
