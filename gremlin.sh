@@ -30,3 +30,4 @@ cp $CONF_FILE $CONF_FILE.tmp
 sed "s|^host:.*|host: $IP|" $CONF_FILE.tmp > $CONF_FILE
 
 exec /opt/gremlin-server/bin/gremlin-server.sh "$@"
+

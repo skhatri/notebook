@@ -5,6 +5,7 @@ An image for Gremlin using aws graph notebook
 
 ```
 docker-compose pull
+docker-compose build
 docker-compose up -d
 ```
 
